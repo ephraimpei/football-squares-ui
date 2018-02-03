@@ -1,0 +1,23 @@
+dist: trusty
+language: node_js
+install:
+  - yarn install
+node_js:
+  - node
+script:
+  - yarn build
+cache:
+  yarn: true
+  directories:
+  - node_modules
+deploy:
+  provider: s3
+  access_key_id: AKIAIJEI47NJZTBYMIDA
+  secret_access_key:
+    secure: WamOpM10r2k2EDZLOFa5x3pWqqE9aO01NSnGh9pHSlHCAMJ7XJ9A10JnKCE5va0RsefzHcfRihiE6HONODKMMHPoQJXGcHvxSw+LbrVfZ2XS38OjQsd4aJOeOZTkB031HQJvj/nzaY5S8+HacIur3SH8gN78cnxLXG6tiHjsU6eVOasWcumcarA2KQVKOohdHAhWpjzewM69MLI8D1aUsssQ72jbFMW6//YajF+HeD/3BPKzdumQ6s2sN1r7CIHt8PAYqySsfJgKqLTYzGDWmjJk7QUQEvTwLSgW+1OYdJowQD4tuO+3rTY3T/+xJkwNsByfQ/twlTiPqVdn8KDAi1k4vAEoSLnUIoCgsELNZbw4oHskBpNCrNKqaO6kX7J7lr9GmFWfwdtn3ytmRt2ckezFwH5hm9uC+eu1mtOOywYlDh5a4UO5KOcwxJuw062Abl7KM1sFaJjPiJk0VNU9WDZGMG6Xy7JPZ45W+3AEF3Bqg127pysnk1CfGPM3F6GLK2LozPrl7h5S4OOIbFBC7F1HdQmN41NJvAe7J61mUqJP95L/w+Ua92nhcYFpI4P+wE3+0xKjfBBseONdyNeZra9dGytyU48KDuKp5kZcPDrs/qH5Nm+/oY/KTjHTh++VEYdMYyLo1WfUUaj4PsjtdCBlSB+23bOx37PYkRs6lVk=
+  bucket: football-squares-ui
+  local-dir: "./build"
+  acl: public_read
+  on:
+    repo: ephraimpei/football-squares-ui
+    branch: master
