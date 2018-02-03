@@ -1,0 +1,11 @@
+.col {
+  border-right: 1px solid black;
+}
+
+.row {
+  border-bottom: 1px solid black;
+}
+
+.row.name:nth-child(even) {
+  background: #eeeeee;
+}
