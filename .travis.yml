@@ -18,6 +18,7 @@ deploy:
   bucket: football-squares-ui
   local-dir: "./build"
   acl: public_read
+  skip_cleanup: true
   on:
     repo: ephraimpei/football-squares-ui
     branch: master
