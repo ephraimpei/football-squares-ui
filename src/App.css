@@ -9,3 +9,13 @@
 .row.name:nth-child(even) {
   background: #eeeeee;
 }
+
+.wrapper {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.wrapper .regenerate {
+  margin: auto;
+  display: block;
+}

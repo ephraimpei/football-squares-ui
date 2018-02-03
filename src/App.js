@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 const createColumn = (name, idx) => (
@@ -26,12 +26,38 @@ const insertNumbers = (data) => {
   return dataCopy;
 };
 
-const App = ({ data }) => {
-  return (
-    <main className="container">
-      {insertNumbers(data).map(createRow)}
-    </main>
-  );
-};
+const API_URL = 'https://generate-boxes.herokuapp.com/api';
+
+class App extends Component {
+  state = { data: [] };
+
+  componentWillMount() {
+    this.regenerateSquares();
+  }
+
+  regenerateSquares = () => {
+    fetch(API_URL)
+      .then(res => res.json())
+      .then(data => this.setState({ data }));
+  }
+
+  render() {
+    const { data } = this.state;
+
+    return (
+      <main>
+        <section className="container">
+          {
+            data.length > 0 &&
+            insertNumbers(data).map(createRow)
+          }
+          <div className="wrapper">
+            <button className="regenerate" onClick={this.regenerateSquares}>Regenerate</button>
+          </div>
+        </section>
+      </main>
+    );
+  }
+}
 
 export default App;
