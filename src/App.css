@@ -2,6 +2,11 @@
   border-right: 1px solid black;
 }
 
+.col.name {
+  padding: 0;
+  text-align: center;
+}
+
 .row {
   border-bottom: 1px solid black;
 }
